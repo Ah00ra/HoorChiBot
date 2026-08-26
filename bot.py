@@ -84,7 +84,8 @@ def update_db():
 
         status = this_changes[x][2]
         cursor.execute(
-            f"INSERT INTO main VALUES('{title}', '{price}', '{percent}', '{cost}', '{status}')"
+            " INSERT INTO main VALUES(%s,%s.%s,%s,%s)",
+            (title, price, percent , cost, status)
         )
     conn.commit()
     conn.close()
